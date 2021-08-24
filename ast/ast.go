@@ -5,16 +5,6 @@ import (
 	"strings"
 )
 
-//			Statement           -> TokenList, Node
-//		   /         \
-//   MultiKeyword  MultiKeyword -> TokenList, Node
-//       /             \
-//  RedisToken       RedisToken
-
-//         TokenList
-//        /        \
-//     Node       Node
-
 type TokenList interface {
 	Node
 	GetTokens() []Node

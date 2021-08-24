@@ -19,7 +19,7 @@ func main() {
 	flag.StringVar(&password, "password", "", "Redis instance password for caching data for autocompletion.")
 	flag.IntVar(&database, "database", 0, "Redis database for caching data for autocompletion.")
 	flag.StringVar(&logFile, "logFile", "c:/server.log", "Path for log file.")
-	flag.BoolVar(&debugLogEnabled, "loggingEnabled", false, "Enables debug logging.")
+	flag.BoolVar(&debugLogEnabled, "debugLogEnabled", false, "Enables debug logging.")
 	flag.BoolVar(&dbCacheEnabled, "dbCacheEnabled", false, "Enables keys and users autocompletion.")
 	flag.Parse()
 
