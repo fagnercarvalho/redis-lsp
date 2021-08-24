@@ -131,3 +131,9 @@ type ShowMessageParams struct {
 	Type    MessageType `json:"type"`
 	Message string      `json:"message"`
 }
+
+// workspace/DidChangeConfiguration
+
+type DidChangeConfigurationParams struct {
+	Settings  interface{}   `json:"settings"`
+}

@@ -59,8 +59,11 @@ func (s Server) Handle(ctx context.Context, conn *jsonrpc2.Conn, request *jsonrp
 	case "initialized":
 		// do nothing
 		return nil, nil
+	case "workspace/didChangeConfiguration":
+		// TODO: implement method
+		return s.handleWorkspaceDidChangeConfiguration(request.Params)
 	}
-	// TODO: implement hover, setTraceNotification (for settings changes)
+	// TODO: implement hover
 	errorMessage := fmt.Sprintf("method not handled: %v", request.Method)
 	log.Println(errorMessage)
 
@@ -229,6 +232,18 @@ func (s Server) handleWorkspaceExecuteCommand(ctx context.Context, params *json.
 			return nil, err
 		}
 	}
+
+	return nil, nil
+}
+
+func (s Server) handleWorkspaceDidChangeConfiguration(params *json.RawMessage) (interface{}, error) {
+	var request DidChangeConfigurationParams
+	err := json.Unmarshal(*params, &request)
+	if err != nil {
+		return nil, err
+	}
+
+	log.Println(request)
 
 	return nil, nil
 }
